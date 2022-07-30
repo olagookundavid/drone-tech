@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "692453135911",
+    "project_id": "droneapp-c200f",
+    "storage_bucket": "droneapp-c200f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:692453135911:android:967ca409ad8a237847e002",
+        "android_client_info": {
+          "package_name": "com.example.drone_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "692453135911-u8mupobk0su4blhfhf3cqcmgkd0maifb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDb0VCjug0CZG52gciZUcU65bDLI26M7J4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "692453135911-u8mupobk0su4blhfhf3cqcmgkd0maifb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
