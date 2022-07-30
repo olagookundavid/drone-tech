@@ -1,4 +1,5 @@
-import 'package:drone_app/firebase_crud.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:drone_app/network_services/firebase_crud.dart';
 
 //Repository to create an abstract layer
 class StorageService {
@@ -17,5 +18,9 @@ class StorageService {
       serviced,
       dateacquired,
     );
+  }
+
+  Stream<QuerySnapshot<Map<String, dynamic>>> getDroneDetailsStreams() {
+    return crudMethods.getDroneStreams();
   }
 }

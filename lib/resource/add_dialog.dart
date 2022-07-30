@@ -1,4 +1,6 @@
-import 'package:drone_app/storage_service.dart';
+import 'package:drone_app/resource/default_button.dart';
+import 'package:drone_app/network_repositories/storage_service.dart';
+import 'package:drone_app/resource/snackbars.dart';
 import 'package:flutter/material.dart';
 
 TextEditingController id = TextEditingController();
@@ -6,17 +8,8 @@ TextEditingController weight = TextEditingController();
 TextEditingController manufacturer = TextEditingController();
 TextEditingController serviced = TextEditingController();
 TextEditingController dateacquired = TextEditingController();
-bool isTextEmpty() {
-  if (id.text.isEmpty ||
-      weight.text.isEmpty ||
-      manufacturer.text.isEmpty ||
-      serviced.text.isEmpty ||
-      dateacquired.text.isEmpty) {
-    return true;
-  } else {
-    return false;
-  }
-}
+
+//dialogue to add new drone data
 
 addNewDialog(context) {
   showDialog(
@@ -64,6 +57,7 @@ addNewDialog(context) {
                   serviced.clear();
                   dateacquired.clear();
                   Navigator.pop(context);
+                  showSnackBar(context, 'Successfully added a drone!');
                 }
               },
               child: const Text('Add Drone'),
@@ -91,6 +85,7 @@ addNewDialog(context) {
   );
 }
 
+//a resuable function that returns a textfield
 TextField controller(TextEditingController controller,
     {String? hintText, Widget? suffix}) {
   return TextField(
@@ -98,31 +93,4 @@ TextField controller(TextEditingController controller,
     decoration:
         InputDecoration(suffixIcon: suffix, filled: true, hintText: hintText),
   );
-}
-
-class DefaultButton extends StatelessWidget {
-  const DefaultButton(
-      {Key? key,
-      required this.child,
-      required this.color,
-      required this.textcolor,
-      required this.onpressed})
-      : super(key: key);
-  final Widget child;
-  final Color color;
-  final Color textcolor;
-  final VoidCallback onpressed;
-
-  @override
-  Widget build(BuildContext context) {
-    return ElevatedButton(
-      style: ButtonStyle(
-          backgroundColor: MaterialStateProperty.all<Color>(color),
-          textStyle: MaterialStateProperty.all<TextStyle>(
-            TextStyle(color: textcolor),
-          )),
-      onPressed: onpressed,
-      child: child,
-    );
-  }
 }

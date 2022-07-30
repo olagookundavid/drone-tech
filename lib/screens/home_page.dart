@@ -1,18 +1,17 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:drone_app/add_dialog.dart';
-import 'package:drone_app/firebase_crud.dart';
+import 'package:drone_app/resource/add_dialog.dart';
+import 'package:drone_app/network_repositories/storage_service.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
-  HomePage({Key? key}) : super(key: key);
-  final CrudMethods crudMethods = CrudMethods();
+  const HomePage({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: true,
       appBar: AppBar(
         backgroundColor: Colors.blue,
-        title: const Text('My Drones'),
+        title: const Text('Drones Delivery List'),
         centerTitle: true,
       ),
       body: Column(
@@ -20,7 +19,7 @@ class HomePage extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           StreamBuilder<QuerySnapshot<Map<String, dynamic>>>(
-            stream: crudMethods.getMessageStreams(),
+            stream: StorageService().getDroneDetailsStreams(),
             builder: (context, snapshot) {
               if (snapshot.hasData) {
                 return Expanded(

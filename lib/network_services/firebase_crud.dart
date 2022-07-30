@@ -15,7 +15,8 @@ class CrudMethods {
     });
   }
 
-  Stream<QuerySnapshot<Map<String, dynamic>>> getMessageStreams() {
+//function for the data stream
+  Stream<QuerySnapshot<Map<String, dynamic>>> getDroneStreams() {
     return _firestore
         .collection('drones')
         .orderBy(
